@@ -1,0 +1,27 @@
+@model IEnumerable<BioSportWeb.Models.Planes>
+
+@{
+    ViewData["Title"] = "Planes";
+}
+
+<div class="container mt-4">
+    <h2>Lista de Planes</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Duración</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model) {
+                <tr>
+                    <td>@item.Nombre</td>
+                    <td>@item.Precio</td>
+                    <td>@item.DuracionDias días</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

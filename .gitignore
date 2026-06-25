@@ -1,0 +1,12 @@
+# Archivos de compilación de .NET
+bin/
+obj/
+
+# Archivos basura de macOS
+.DS_Store
+._*
+.AppleDouble
+.LSOverride
+
+# Configuraciones de VS Code
+.vscode/
