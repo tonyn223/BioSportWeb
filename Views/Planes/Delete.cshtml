@@ -1,0 +1,37 @@
+@model BioSportWeb.Models.Planes
+
+@{
+    ViewData["Title"] = "Eliminar Plan";
+}
+
+<div class="container mt-4">
+    <h2 class="text-danger">Eliminar Plan</h2>
+    <h3>¿Estás seguro de que deseas eliminar este registro?</h3>
+    <hr />
+    
+    <div class="card border-danger mb-3" style="max-width: 30rem;">
+        <div class="card-header bg-danger text-white fw-bold">
+            Detalles del Plan
+        </div>
+        <div class="card-body">
+            <dl class="row">
+                <dt class="col-sm-5">Nombre:</dt>
+                <dd class="col-sm-7">@Model.Nombre</dd>
+
+                <dt class="col-sm-5">Precio:</dt>
+                <dd class="col-sm-7">@Model.Precio.ToString("C")</dd>
+
+                <dt class="col-sm-5">Duración (Días):</dt>
+                <dd class="col-sm-7">@Model.DuracionDias</dd>
+            </dl>
+            
+            <form asp-action="Delete">
+                <input type="hidden" asp-for="IdPlan" />
+                <button type="submit" class="btn btn-danger">
+                    <i class="bi bi-trash"></i> Confirmar Eliminación
+                </button>
+                <a asp-action="Index" class="btn btn-outline-secondary ms-2">Cancelar</a>
+            </form>
+        </div>
+    </div>
+</div>

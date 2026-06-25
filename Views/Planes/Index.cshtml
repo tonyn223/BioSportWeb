@@ -1,26 +1,44 @@
 @model IEnumerable<BioSportWeb.Models.Planes>
 
 @{
-    ViewData["Title"] = "Planes";
+    ViewData["Title"] = "Planes del Gimnasio";
 }
 
 <div class="container mt-4">
-    <h2>Lista de Planes</h2>
-    <table class="table">
-        <thead>
+    <h2 class="text-primary">Lista de Planes</h2>
+    
+    <div class="mb-3">
+        <a asp-action="Create" class="btn btn-success">
+            + Crear Nuevo Plan
+        </a>
+    </div>
+
+    <table class="table table-striped">
+        <thead class="table-dark">
             <tr>
+                <th>ID</th>
                 <th>Nombre</th>
                 <th>Precio</th>
-                <th>Duración</th>
+                <th>Duración (Días)</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var item in Model) {
-                <tr>
-                    <td>@item.Nombre</td>
-                    <td>@item.Precio</td>
-                    <td>@item.DuracionDias días</td>
-                </tr>
+            @if (Model != null)
+            {
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.IdPlan</td>
+                        <td>@item.Nombre</td>
+                        <td>@item.Precio.ToString("C")</td>
+                        <td>@item.DuracionDias</td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.IdPlan" class="btn btn-sm btn-primary">Editar</a>
+                            <a asp-action="Delete" asp-route-id="@item.IdPlan" class="btn btn-sm btn-danger ms-1">Eliminar</a>
+                        </td>
+                    </tr>
+                }
             }
         </tbody>
     </table>
